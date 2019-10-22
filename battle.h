@@ -1,0 +1,1 @@
+/* battle class collection file */
