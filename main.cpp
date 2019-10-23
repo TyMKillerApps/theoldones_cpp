@@ -1,6 +1,17 @@
 /* obviously main everything place */
 #include <iostream>
 #include "dice.h"
+#include "battle.h"
+#include "enemy.h"
+#include "experience.h"
+#include "hero.h"
+#include "input.h"
+#include "npc.h"
+#include "render.h"
+#include "save.h"
+#include "spells.h"
+#include "update.h"
+#include "world.h"
 using namespace std;
 int main()
 {
@@ -14,6 +25,10 @@ int main()
 		cout << "\n2) Generate Hero Stats\n";
 		cout << "\n3) Test Dice Rolls\n";
 		cout << "\n4) Exit\n";
+		cout << "\n5) Enemy Test\n";
+		cout << "\n6) Experience Test\n";
+		cout << "\n7) Npc Test\n";
+		cout << "\n8) Spells Test\n";
 		cin >> menu_choice;
 		switch (menu_choice)
 		{
@@ -40,6 +55,18 @@ int main()
 			case 4:
 				cout << "\n Exiting now" << endl;
 				hero_choice_1 = true;
+				break;
+			case 5:
+				cout <<"\n Place holder .. choose another choice" << endl;
+				break;
+			case 6:
+				cout <<"\n Place holder .. choose another choice" << endl;
+				break;
+			case 7:
+				cout <<"\n Place holder .. choose another choice" << endl;
+				break;
+			case 8:
+				cout <<"\n Place holder .. choose another choice" << endl;
 				break;
 			default:
 				cout << "\nChoose a correct menu item\n";
