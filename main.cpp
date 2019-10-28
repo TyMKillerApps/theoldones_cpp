@@ -15,7 +15,7 @@
 using namespace std;
 int main()
 {
-	bool hero_choice_1 {false};
+	bool hero_choice_1 = false;
 	int menu_choice;
 	fair_dice fdice1;
 	string hero_name;
