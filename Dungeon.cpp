@@ -258,6 +258,9 @@ while(true)
     pChoice = 'p';
     pChoices.push_back(pChoice);
     cin >> pChoice;
+    vector <int> equipChoices { 0,1,2,3,4,5,6,7,9 };
+    int eChoice;
+
     switch(pChoice)
         {
         case 'l':
@@ -291,9 +294,14 @@ while(true)
                     {
                         cout << "Item: " << i << " " << player.inventoryItems.at(i).name << ".\n";
                     }
-                continue;    
+                    cout << "equip item: (enter item number) \n";
+                    cin >> eChoice;
+                    if(player.findInventory(equipChoices,eChoice) == 1)
+                    {
+                     player.useItem(player.inventoryItems.at(eChoice));
+                    }
+                continue;     
                 }
-
             }
             case 'w':
             {

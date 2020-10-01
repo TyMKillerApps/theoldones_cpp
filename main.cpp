@@ -24,7 +24,7 @@ int main()
     Weapon sword = Weapon("Short Sword", 0, "1d6m0", 0, 0, 0, false);
     Weapon shield = Weapon("Shield",0,"0d1m0",2,0,0, false);
     // name, health, attack, armorClass, useAsWeapon, keyItem, equiped
-    Item potion = Item("Potion",0,"0d1m0",0,false,0,false);
+    Item potion = Item("Potion",7,"0d1m0",0,false,0,false);
     // name, health, attack, armorClass, rarity, status, equiped
     Accessory ring = Accessory("Ring Of Power",0,"0d1m0",5,0,"",false);
     //Weapon stick = Weapon("DStick", 0, "1d4m0", 0, 0, 0);

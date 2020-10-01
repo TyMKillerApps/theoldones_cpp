@@ -104,6 +104,14 @@ void Player::unequipAccessory(Accessory accessory)
     decreaseStats(accessory.health, accessory.attackDice, accessory.armorClass);
 }
 
+int Player::findInventory(vector<int> ivect, int ikey)
+{
+    if (find(ivect.begin(), ivect.end(), ikey) != ivect.end())
+    return 1;
+    else
+    return 0;
+}
+
 Menu::Menu( int nsel, vector<Item> invItem, vector<Weapon> invWeap, vector<Accessory> invAcc)
 {
     numSelections = nsel;
