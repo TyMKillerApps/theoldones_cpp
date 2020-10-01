@@ -30,6 +30,7 @@ public:
     void equipAccessory(Accessory);
     void unequipWeapon(Weapon);
     void unequipAccessory(Accessory);
+    int findInventory(vector<int>,int);
 };
 
 class Menu: public Player
