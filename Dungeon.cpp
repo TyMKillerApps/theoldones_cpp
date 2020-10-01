@@ -294,7 +294,7 @@ while(true)
                     {
                         cout << "Item: " << i << " " << player.inventoryItems.at(i).name << ".\n";
                     }
-                    cout << "equip item: (enter item number) \n";
+                    cout << "equip Item: (enter item number) \n";
                     cout << player.currentHealth << " <- Player current health \n";
                     cin >> eChoice;
                     if(player.findInventory(equipChoices,eChoice) == 1)
@@ -318,6 +318,14 @@ while(true)
                     {
                         cout << "Weapon: " << i << " " << player.inventoryWeapons.at(i).name << ".\n";
                     }
+                                  cout << "equip Weapon: (enter item number) \n";
+                    cout << player.attackDice << " <- Player current attackDice \n";
+                    cin >> eChoice;
+                    if(player.findInventory(equipChoices,eChoice) == 1)
+                    {
+                     player.equipWeapon(player.inventoryWeapons.at(eChoice));
+                    }
+                    cout << player.attackDice << " <- Player current attackDice after using: " << player.inventoryWeapons.at(eChoice).name << " \n";    
                 continue;
                 }
             }
@@ -333,7 +341,15 @@ while(true)
                     for (int i = 0; i < player.inventoryAccessories.size(); i++)
                     {
                         cout << "Accessory: " << i << " " << player.inventoryAccessories.at(i).name << ".\n";
-                    }            
+                    }  
+                    cout << "equip Accessory: (enter Accessory number) \n";
+                    cout << player.armorClass << " <- Player current armorClass \n";
+                    cin >> eChoice;
+                    if(player.findInventory(equipChoices,eChoice) == 1)
+                    {
+                     player.equipAccessory(player.inventoryAccessories.at(eChoice));
+                    }
+                    cout << player.armorClass << " <- Player current armorClass after using: " << player.inventoryAccessories.at(eChoice).name << " \n";          
                 continue;
                 }            
             }
