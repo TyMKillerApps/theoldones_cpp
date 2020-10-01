@@ -245,6 +245,9 @@ void Dungeon::executeMenu(Player player)
 {
 while(true)
 {
+    vector<Item> equipedItems;
+    vector<Accessory> equipedAccessories;
+    vector<Weapon> equipedWeapons;
     vector <char> pChoices;
     pChoices.empty();    
     char pChoice;
@@ -294,7 +297,7 @@ while(true)
                     {
                         cout << "Item: " << i << " " << player.inventoryItems.at(i).name << ".\n";
                     }
-                    cout << "equip Item: (enter item number) \n";
+                    cout << "use Item: (enter item number) \n";
                     cout << player.currentHealth << " <- Player current health \n";
                     cin >> eChoice;
                     if(player.findInventory(equipChoices,eChoice) == 1)
@@ -302,6 +305,7 @@ while(true)
                      player.useItem(player.inventoryItems.at(eChoice));
                     }
                     cout << player.currentHealth << " <- Player current health after using: " << player.inventoryItems.at(eChoice).name << " \n";
+                    player.inventoryItems.erase(player.inventoryItems.begin()+eChoice);
                 continue;     
                 }
             }
@@ -316,16 +320,38 @@ while(true)
                 {                       
                     for (int i = 0; i < player.inventoryWeapons.size(); i++)
                     {
-                        cout << "Weapon: " << i << " " << player.inventoryWeapons.at(i).name << ".\n";
+                        cout << "Weapon: " << i << " " << player.inventoryWeapons.at(i).name << " equiped? "<< player.inventoryWeapons.at(i).equiped << ".\n";
+                        if(player.inventoryWeapons.at(i).equiped)
+                        {
+                            equipedWeapons.push_back(player.inventoryWeapons.at(i));
+                        }
                     }
-                                  cout << "equip Weapon: (enter item number) \n";
+                    cout << "equip Weapon: (enter item number) \n";
                     cout << player.attackDice << " <- Player current attackDice \n";
                     cin >> eChoice;
-                    if(player.findInventory(equipChoices,eChoice) == 1)
+                    if(player.findInventory(equipChoices,eChoice) == 1 && !player.inventoryWeapons.at(eChoice).equiped)
                     {
+                        if(!equipedWeapons.empty())
+                        {
+                             for (int i = 0; i < player.inventoryWeapons.size(); i++)
+                            {
+                                if(player.inventoryWeapons.at(i).equiped)
+                                {
+                                cout << "Unequiping Accessory: " << player.inventoryWeapons.at(i).name << "\n";
+                                player.unequipWeapon(player.inventoryWeapons.at(i));
+                                player.inventoryWeapons.at(i).equiped = false;
+                                equipedWeapons.clear();
+                                }
+                            }
+                        }
                      player.equipWeapon(player.inventoryWeapons.at(eChoice));
+                     player.inventoryWeapons.at(eChoice).equiped = true;
+                     cout << player.armorClass << " <- Player current attackDice after using: " << player.inventoryWeapons.at(eChoice).name << " \n";  
                     }
-                    cout << player.attackDice << " <- Player current attackDice after using: " << player.inventoryWeapons.at(eChoice).name << " \n";    
+                    else
+                    {
+                        cout << "cannot equip an already equiped inventory \n";
+                    }
                 continue;
                 }
             }
@@ -340,16 +366,39 @@ while(true)
                 {                          
                     for (int i = 0; i < player.inventoryAccessories.size(); i++)
                     {
-                        cout << "Accessory: " << i << " " << player.inventoryAccessories.at(i).name << ".\n";
-                    }  
+                        cout << "Accessory: " << i << " " << player.inventoryAccessories.at(i).name << " equiped? "<< player.inventoryAccessories.at(i).equiped << ".\n";
+                        if(player.inventoryAccessories.at(i).equiped)
+                        {
+                            equipedAccessories.push_back(player.inventoryAccessories.at(i));
+                        }
+                    }
                     cout << "equip Accessory: (enter Accessory number) \n";
                     cout << player.armorClass << " <- Player current armorClass \n";
                     cin >> eChoice;
-                    if(player.findInventory(equipChoices,eChoice) == 1)
+                    if(player.findInventory(equipChoices,eChoice) == 1 && !player.inventoryAccessories.at(eChoice).equiped)
                     {
+                        if(!equipedAccessories.empty())
+                        {
+                             for (int i = 0; i < player.inventoryAccessories.size(); i++)
+                            {
+                                if(player.inventoryAccessories.at(i).equiped)
+                                {
+                                cout << "Unequiping Accessory: " << player.inventoryAccessories.at(i).name << "\n";
+                                player.unequipAccessory(player.inventoryAccessories.at(i));
+                                player.inventoryAccessories.at(i).equiped = false;
+                                equipedAccessories.clear();
+                                }
+                            }
+                        }
                      player.equipAccessory(player.inventoryAccessories.at(eChoice));
+                     player.inventoryAccessories.at(eChoice).equiped = true;
+                     cout << player.armorClass << " <- Player current armorClass after using: " << player.inventoryAccessories.at(eChoice).name << " \n";  
                     }
-                    cout << player.armorClass << " <- Player current armorClass after using: " << player.inventoryAccessories.at(eChoice).name << " \n";          
+                    else
+                    {
+                        cout << "cannot equip an already equiped inventory \n";
+                    }
+                            
                 continue;
                 }            
             }

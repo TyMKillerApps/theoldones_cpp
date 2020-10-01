@@ -15,6 +15,7 @@ int main()
     cin >> playerName;
     /* String name, int maxHealth, currentHealth, string attackDice, strength, dexterity, constitution, intelligence, wisodom, charisma, speed, experience, level, armorClass, initiative; */
     Player player = Player(playerName, 12, 12, "1d4m0", 14, 12, 15, 12, 14, 12, 30, 0, 1, 14, 1, 0, 0);
+    Player playerBase = Player(playerName, 12, 12, "1d4m0", 14, 12, 15, 12, 14, 12, 30, 0, 1, 14, 1, 0, 0);
     
     /* setup Room Inventory and Enemies */
     DnDDice dDice;
@@ -27,6 +28,7 @@ int main()
     Item potion = Item("Potion",7,"0d1m0",0,false,0,false);
     // name, health, attack, armorClass, rarity, status, equiped
     Accessory ring = Accessory("Ring Of Power",0,"0d1m0",5,0,"",false);
+    Accessory falsering = Accessory("Fake Ring Of Power",0,"0d1m0",0,0,"",false);
     //Weapon stick = Weapon("DStick", 0, "1d4m0", 0, 0, 0);
     vector<Weapon> firstRoomWeapons;
     vector<Accessory> firstRoomAccessories;
@@ -35,6 +37,7 @@ int main()
     firstRoomWeapons.push_back(sword);
     firstRoomItems.push_back(potion);
     firstRoomAccessories.push_back(ring);
+    firstRoomAccessories.push_back(falsering);
     sixthRoomWeapons.push_back(shield);
     /* int maxHealth, currentHealth, attack, strength, dexterity, constitution, intelligence, wisodom, charisma, speed, experience, level, armorClass, initiative; */
     CharacterCore firstEnemy = CharacterCore("Dreamlands Cat", 2, 2, "1d4m1", 3, 15, 10, 11, 12, 13, 30, 0, 1, 12, 2, 0, 0);
@@ -62,6 +65,7 @@ int main()
     Room tenthRoom = Room(9, true, vector<Item>(), vector<Accessory>(), vector<Weapon>(), tenthRoomEnemies,true,false,false,false,8,0,0,0);
 
     Dungeon dungeon = Dungeon(player);
+    Dungeon dungeonBase = Dungeon(playerBase);
     dungeon.rooms[0] = firstRoom;
     dungeon.rooms[1] = secondRoom;
     dungeon.rooms[2] = thirdRoom;
