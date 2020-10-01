@@ -1,1 +1,0 @@
-/* event update class collection */

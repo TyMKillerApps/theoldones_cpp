@@ -1,1 +1,0 @@
-/* spells class collection */
