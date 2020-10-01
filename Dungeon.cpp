@@ -295,11 +295,13 @@ while(true)
                         cout << "Item: " << i << " " << player.inventoryItems.at(i).name << ".\n";
                     }
                     cout << "equip item: (enter item number) \n";
+                    cout << player.currentHealth << " <- Player current health \n";
                     cin >> eChoice;
                     if(player.findInventory(equipChoices,eChoice) == 1)
                     {
                      player.useItem(player.inventoryItems.at(eChoice));
                     }
+                    cout << player.currentHealth << " <- Player current health after using: " << player.inventoryItems.at(eChoice).name << " \n";
                 continue;     
                 }
             }
