@@ -374,7 +374,25 @@ while(true)
                     }
                     cout << "equip Accessory: (enter Accessory number) \n";
                     cout << player.armorClass << " <- Player current armorClass \n";
-                    cin >> eChoice;
+                    while(cin >> eChoice)
+                    {
+                        if (eChoice < 0 || eChoice > player.inventoryAccessories.size())
+                        {
+                            cout << " Invallid Choice Try again \n";
+                            continue;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    //check if echoice is an int or not
+                    //while( !(std::cin >> eChoice) || eChoice < 0 || eChoice > player.inventoryAccessories.size())
+                    //{
+                    //    cout << "Bad Incorrect choice. \n";
+                    //cin >> eChoice;
+                    //}
+                   
                     if(player.findInventory(equipChoices,eChoice) == 1 && !player.inventoryAccessories.at(eChoice).equiped)
                     {
                         if(!equipedAccessories.empty())
@@ -400,7 +418,8 @@ while(true)
                     }
                             
                 continue;
-                }            
+                }  
+                         
             }
             case 'e':
             {
@@ -409,7 +428,8 @@ while(true)
             }
             default :
             {
-                cout << "Incorrect choice. \n";               
+                cout << "Incorrect choice. \n"; 
+                            
             }
         continue;    
         }
