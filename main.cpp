@@ -54,7 +54,7 @@ int main()
 
     /* setup Rooms .. this will be a Random Gen at some point */
     Room firstRoom = Room(0, false,firstRoomItems, firstRoomAccessories, firstRoomWeapons, vector<CharacterCore>(),false,true,false,true,0,2,0,1);
-    Room secondRoom = Room(1, false,vector<Item>(), vector<Accessory>(), vector<Weapon>(), vector<CharacterCore>(),false,false,true,false,0,0,0,0);
+    Room secondRoom = Room(1, false,vector<Item>(), vector<Accessory>(), vector<Weapon>(), vector<CharacterCore>(),false,true,true,false,0,10,0,0);
     Room thirdRoom = Room(2, false, vector<Item>(), vector<Accessory>(), vector<Weapon>(), thirdRoomEnemies,true,false,false,true,0,0,0,3);
     Room fourthRoom = Room(3, false, vector<Item>(), vector<Accessory>(), vector<Weapon>(), fourthRoomEnemies,false,false,true,true,0,0,2,4);
     Room fifthRoom = Room(4, false, vector<Item>(), vector<Accessory>(), vector<Weapon>(), vector<CharacterCore>(),false,false,true,true,0,0,3,5);
@@ -63,6 +63,8 @@ int main()
     Room eighthRoom = Room(7, false, vector<Item>(), vector<Accessory>(), vector<Weapon>(), vector<CharacterCore>(),true,true,false,false,6,8,0,0);
     Room ninethRoom = Room(8, false, vector<Item>(), vector<Accessory>(), vector<Weapon>(), vector<CharacterCore>(),true,true,false,false,7,9,0,0);
     Room tenthRoom = Room(9, true, vector<Item>(), vector<Accessory>(), vector<Weapon>(), tenthRoomEnemies,true,false,false,false,8,0,0,0);
+/// secret room number 11
+    Room eleventhRoom = Room(10, false, vector<Item>(), vector<Accessory>(), vector<Weapon>(), vector<CharacterCore>(),true,false,false,false,0,0,0,0);
 
     Dungeon dungeon = Dungeon(player);
     Dungeon dungeonBase = Dungeon(playerBase);
