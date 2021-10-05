@@ -41,16 +41,19 @@ int main()
     sixthRoomWeapons.push_back(shield);
     /* int maxHealth, currentHealth, attack, strength, dexterity, constitution, intelligence, wisodom, charisma, speed, experience, level, armorClass, initiative; */
     CharacterCore firstEnemy = CharacterCore("Dreamlands Cat", 2, 2, "1d4m1", 3, 15, 10, 11, 12, 13, 30, 0, 1, 12, 2, 0, 0);
-    CharacterCore secondEnemy = CharacterCore("Mythos Ghast", 45, 45, "1d6m2", 13, 15, 16, 4, 16, 12, 40, 0, 1, 15, 2, 0, 0);    
+    CharacterCore secondEnemy = CharacterCore("Mythos Ghast", 45, 45, "1d6m2", 13, 15, 16, 4, 16, 12, 40, 0, 1, 15, 2, 0, 0);
+    CharacterCore thirdEnemy = CharacterCore("Greater Mythos Ghast", 80, 80, "2d6m2", 13, 15, 16, 4, 16, 12, 40, 0, 1, 15, 2, 0, 0);    
     vector<CharacterCore> thirdRoomEnemies;
     vector<CharacterCore> fourthRoomEnemies;
     vector<CharacterCore> seventhRoomEnemies;
     vector<CharacterCore> tenthRoomEnemies;
+    vector<CharacterCore> eleventhRoomEnemies;
     thirdRoomEnemies.push_back(firstEnemy);
     thirdRoomEnemies.push_back(firstEnemy);
     fourthRoomEnemies.push_back(firstEnemy);
     seventhRoomEnemies.push_back(firstEnemy);
     tenthRoomEnemies.push_back(secondEnemy);
+    eleventhRoomEnemies.push_back(thirdEnemy);
 
     /* setup Rooms .. this will be a Random Gen at some point */
     Room firstRoom = Room(0, false,firstRoomItems, firstRoomAccessories, firstRoomWeapons, vector<CharacterCore>(),false,true,false,true,0,2,0,1);
@@ -64,7 +67,7 @@ int main()
     Room ninethRoom = Room(8, false, vector<Item>(), vector<Accessory>(), vector<Weapon>(), vector<CharacterCore>(),true,true,false,false,7,9,0,0);
     Room tenthRoom = Room(9, true, vector<Item>(), vector<Accessory>(), vector<Weapon>(), tenthRoomEnemies,true,false,false,false,8,0,0,0);
 /// secret room number 11
-    Room eleventhRoom = Room(10, false, vector<Item>(), vector<Accessory>(), vector<Weapon>(), vector<CharacterCore>(),true,false,false,false,0,0,0,0);
+    Room eleventhRoom = Room(10, false, vector<Item>(), vector<Accessory>(), vector<Weapon>(), eleventhRoomEnemies,true,false,false,false,0,0,0,0);
 
     Dungeon dungeon = Dungeon(player);
     Dungeon dungeonBase = Dungeon(playerBase);
