@@ -328,7 +328,17 @@ while(true)
                     }
                     cout << "equip Weapon: (enter item number) \n";
                     cout << player.attackDice << " <- Player current attackDice \n";
-                    cin >> eChoice;
+                    //cin >> eChoice;
+                    while(!(std::cin >> eChoice))
+                    {
+                        if(!cin)
+                        {
+                            cin.clear();
+                            cout << "Please enter numeric int value \n";
+                            break;
+                        }
+                      break;  
+                    }
                     if(player.findInventory(equipChoices,eChoice) == 1 && !player.inventoryWeapons.at(eChoice).equiped)
                     {
                         if(!equipedWeapons.empty())
