@@ -5,6 +5,7 @@
 #include "Inventory.cpp"
 #include "Room.cpp"
 #include "BattleCore.cpp"
+#include "RoomGen.cpp"
 //#include "Meander.cpp"
 
 int main()
@@ -82,7 +83,16 @@ int main()
     dungeon.rooms[8] = ninethRoom;
     dungeon.rooms[9] = tenthRoom;
 
-    while (true) {
+    RoomGen roomgen;
+    //roomgen.runRoomGen();
+    while (true)
+    {
+        int result = roomgen.runRoomGen();
+        if (result == 0){
+            break;
+        }
+    }
+    while (true) {        
         int result = dungeon.runDungeon();
         if (result == 0) {
             break;
