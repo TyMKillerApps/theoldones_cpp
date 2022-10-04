@@ -10,6 +10,8 @@ int RoomGen::runRoomGen()
     RoomGen::arrayXcords[0] = {0};
     RoomGen::arrayYcords[0] = {0};
     vector<int> list{1,-1};
+    //                          north south west east
+    vector<string> doorsDirection{};
     int x=0;
     int y=0;
     for(int i=1; i<40; i++)
@@ -22,10 +24,22 @@ int RoomGen::runRoomGen()
         switch(newRandom%2){
             case 0:
             x = x + listValue;
+            switch(listValue){
+                case 1:
+                doorsDirection.push_back("east");
+                case -1:
+                doorsDirection.push_back("east");
+            }
            //arrayXcords[i] = x;
             break;
             case 1:
             y = y + listValue;
+            switch(listValue){
+                case 1:
+                doorsDirection.push_back("north");
+                case -1:
+                doorsDirection.push_back("south");
+            }
             //arrayYcords[i] = y;
             break;
         }
@@ -35,7 +49,7 @@ int RoomGen::runRoomGen()
     }
     for(int i=0; i<40; i++)
     {
-        cout << vectRooms[i].first << "," << vectRooms[i].second << endl;
+        cout << vectRooms[i].first << "," << vectRooms[i].second << ", Destination Door: " << doorsDirection[i] << endl;
     }
     return endRoomGenLogic();
 }
