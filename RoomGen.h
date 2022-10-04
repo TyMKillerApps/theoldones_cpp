@@ -16,6 +16,8 @@ public:
     vector< pair <int,int> > vectRooms;
     int arrayXcords[40];
     int arrayYcords[40];
+    int runRoomGen();
+    int endRoomGenLogic();
 };
 
 RoomGen::RoomGen(/* args */)
