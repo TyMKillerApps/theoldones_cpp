@@ -28,7 +28,7 @@ int RoomGen::runRoomGen()
                 case 1:
                 doorsDirection.push_back("east");
                 case -1:
-                doorsDirection.push_back("east");
+                doorsDirection.push_back("west");
             }
            //arrayXcords[i] = x;
             break;
